@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
   "source": "FinancialJuice RSS via existing Cloudflare Worker",
-  "status": "ok",
-  "lastAttemptAt": "2026-11-04T15:52:18Z",
+  "status": "error",
+  "lastAttemptAt": "2026-11-04T21:40:19Z",
   "lastSuccessAt": "2026-11-04T15:52:18Z",
   "sourceNewestAt": "2026-11-04T15:43:55Z",
-  "upstreamItemCount": 50,
+  "upstreamItemCount": null,
   "retentionHours": 12,
   "articleCount": 100,
-  "lastError": null,
+  "lastError": "HTTPError",
   "articles": [
     {
       "guid": "9837107",
