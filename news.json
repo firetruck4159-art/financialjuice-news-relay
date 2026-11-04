@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "source": "FinancialJuice RSS via existing Cloudflare Worker",
+  "status": "not_initialized",
+  "lastAttemptAt": null,
+  "lastSuccessAt": null,
+  "sourceNewestAt": null,
+  "upstreamItemCount": null,
+  "retentionHours": 12,
+  "articleCount": 0,
+  "lastError": null,
+  "articles": []
+}
