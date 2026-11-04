@@ -1,13 +1,414 @@
 {
   "schemaVersion": 1,
   "source": "FinancialJuice RSS via existing Cloudflare Worker",
-  "status": "not_initialized",
-  "lastAttemptAt": null,
-  "lastSuccessAt": null,
-  "sourceNewestAt": null,
-  "upstreamItemCount": null,
+  "status": "ok",
+  "lastAttemptAt": "2026-11-04T07:35:24Z",
+  "lastSuccessAt": "2026-11-04T07:35:24Z",
+  "sourceNewestAt": "2026-11-04T07:30:13Z",
+  "upstreamItemCount": 50,
   "retentionHours": 12,
-  "articleCount": 0,
+  "articleCount": 50,
   "lastError": null,
-  "articles": []
+  "articles": [
+    {
+      "guid": "9836349",
+      "title": "FinancialJuice: Thune plans to run for minority senate leader - Fox",
+      "link": "https://www.financialjuice.com/News/9836349/Thune-plans-to-run-for-minority-senate-leader---Fox.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 07:30:13 GMT",
+      "publishedAt": "2026-11-04T07:30:13Z",
+      "description": ""
+    },
+    {
+      "guid": "9836348",
+      "title": "FinancialJuice: China: In contact with US, Russia on leaders' meeting.",
+      "link": "https://www.financialjuice.com/News/9836348/China-In-contact-with-US-Russia-on-leaders-meeting.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 07:20:45 GMT",
+      "publishedAt": "2026-11-04T07:20:45Z",
+      "description": ""
+    },
+    {
+      "guid": "9836328",
+      "title": "FinancialJuice: Japan's Dep. Chief Cabinet Sec. Kihara: We will watch market moves with high sense of urgency.",
+      "link": "https://www.financialjuice.com/News/9836328/Japans-Dep-Chief-Cabinet-Sec-Kihara-We-will-watch-market-moves-with-high-sense-of-urgency.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 07:03:55 GMT",
+      "publishedAt": "2026-11-04T07:03:55Z",
+      "description": ""
+    },
+    {
+      "guid": "9836327",
+      "title": "FinancialJuice: Japan's Dep. Chief Cabinet Sec. Kihara: Markets move on various factors.",
+      "link": "https://www.financialjuice.com/News/9836327/Japans-Dep-Chief-Cabinet-Sec-Kihara-Markets-move-on-various-factors.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 07:03:40 GMT",
+      "publishedAt": "2026-11-04T07:03:40Z",
+      "description": ""
+    },
+    {
+      "guid": "9836307",
+      "title": "FinancialJuice: SNB Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836307/SNB-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:51:03 GMT",
+      "publishedAt": "2026-11-04T06:51:03Z",
+      "description": ""
+    },
+    {
+      "guid": "9836306",
+      "title": "FinancialJuice: RBNZ Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836306/RBNZ-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:50:48 GMT",
+      "publishedAt": "2026-11-04T06:50:48Z",
+      "description": ""
+    },
+    {
+      "guid": "9836305",
+      "title": "FinancialJuice: RBA Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836305/RBA-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:50:30 GMT",
+      "publishedAt": "2026-11-04T06:50:30Z",
+      "description": ""
+    },
+    {
+      "guid": "9836304",
+      "title": "FinancialJuice: BoJ Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836304/BoJ-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:50:12 GMT",
+      "publishedAt": "2026-11-04T06:50:12Z",
+      "description": ""
+    },
+    {
+      "guid": "9836303",
+      "title": "FinancialJuice: BoC Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836303/BoC-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:49:57 GMT",
+      "publishedAt": "2026-11-04T06:49:57Z",
+      "description": ""
+    },
+    {
+      "guid": "9836302",
+      "title": "FinancialJuice: BoE Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836302/BoE-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:49:38 GMT",
+      "publishedAt": "2026-11-04T06:49:38Z",
+      "description": ""
+    },
+    {
+      "guid": "9836301",
+      "title": "FinancialJuice: ECB Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836301/ECB-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:49:22 GMT",
+      "publishedAt": "2026-11-04T06:49:22Z",
+      "description": ""
+    },
+    {
+      "guid": "9836300",
+      "title": "FinancialJuice: Fed Interest Rate Probabilities",
+      "link": "https://www.financialjuice.com/News/9836300/Fed-Interest-Rate-Probabilities.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:49:03 GMT",
+      "publishedAt": "2026-11-04T06:49:03Z",
+      "description": ""
+    },
+    {
+      "guid": "9836299",
+      "title": "FinancialJuice: Commodities Implied Volatility",
+      "link": "https://www.financialjuice.com/News/9836299/Commodities-Implied-Volatility.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:48:31 GMT",
+      "publishedAt": "2026-11-04T06:48:31Z",
+      "description": ""
+    },
+    {
+      "guid": "9836298",
+      "title": "FinancialJuice: FX Implied Volatility",
+      "link": "https://www.financialjuice.com/News/9836298/FX-Implied-Volatility.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:48:11 GMT",
+      "publishedAt": "2026-11-04T06:48:11Z",
+      "description": ""
+    },
+    {
+      "guid": "9836297",
+      "title": "FinancialJuice: US Index Futures Implied Volatility",
+      "link": "https://www.financialjuice.com/News/9836297/US-Index-Futures-Implied-Volatility.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:47:56 GMT",
+      "publishedAt": "2026-11-04T06:47:56Z",
+      "description": ""
+    },
+    {
+      "guid": "9836296",
+      "title": "FinancialJuice: Top S&P 500 Stock Names Implied Volatility",
+      "link": "https://www.financialjuice.com/News/9836296/Top-SP-500-Stock-Names-Implied-Volatility.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:47:40 GMT",
+      "publishedAt": "2026-11-04T06:47:40Z",
+      "description": ""
+    },
+    {
+      "guid": "9836295",
+      "title": "FinancialJuice: 120-Day Correlation Matrix",
+      "link": "https://www.financialjuice.com/News/9836295/120-Day-Correlation-Matrix.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:46:59 GMT",
+      "publishedAt": "2026-11-04T06:46:59Z",
+      "description": ""
+    },
+    {
+      "guid": "9836294",
+      "title": "FinancialJuice: 90-Day Correlation Matrix",
+      "link": "https://www.financialjuice.com/News/9836294/90-Day-Correlation-Matrix.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:46:39 GMT",
+      "publishedAt": "2026-11-04T06:46:39Z",
+      "description": ""
+    },
+    {
+      "guid": "9836293",
+      "title": "FinancialJuice: 60-Day Correlation Matrix",
+      "link": "https://www.financialjuice.com/News/9836293/60-Day-Correlation-Matrix.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:46:21 GMT",
+      "publishedAt": "2026-11-04T06:46:21Z",
+      "description": ""
+    },
+    {
+      "guid": "9836275",
+      "title": "FinancialJuice: 30-Day Correlation Matrix",
+      "link": "https://www.financialjuice.com/News/9836275/30-Day-Correlation-Matrix.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 06:46:02 GMT",
+      "publishedAt": "2026-11-04T06:46:02Z",
+      "description": ""
+    },
+    {
+      "guid": "9836220",
+      "title": "FinancialJuice: Trump: no plans to alter personnel in his administration, backs Pete Hegseth - WSJ",
+      "link": "https://www.financialjuice.com/News/9836220/Trump-no-plans-to-alter-personnel-in-his-administration-backs-Pete-Hegseth---WSJ.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:56:29 GMT",
+      "publishedAt": "2026-11-04T05:56:29Z",
+      "description": ""
+    },
+    {
+      "guid": "9836219",
+      "title": "FinancialJuice: Trump: I don’t regret initiating the Iran conflict earlier this year - WSJ",
+      "link": "https://www.financialjuice.com/News/9836219/Trump-I-dont-regret-initiating-the-Iran-conflict-earlier-this-year---WSJ.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:54:54 GMT",
+      "publishedAt": "2026-11-04T05:54:54Z",
+      "description": ""
+    },
+    {
+      "guid": "9836218",
+      "title": "FinancialJuice: Can collaborate with Democrats on immigration",
+      "link": "https://www.financialjuice.com/News/9836218/Can-collaborate-with-Democrats-on-immigration.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:54:11 GMT",
+      "publishedAt": "2026-11-04T05:54:11Z",
+      "description": ""
+    },
+    {
+      "guid": "9836195",
+      "title": "FinancialJuice: Edge’s naval shipbuilding unit Abu Dhabi Ship Building to handle full integration",
+      "link": "https://www.financialjuice.com/News/9836195/Edges-naval-shipbuilding-unit-Abu-Dhabi-Ship-Building-to-handle-full-integration.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:41:23 GMT",
+      "publishedAt": "2026-11-04T05:41:23Z",
+      "description": ""
+    },
+    {
+      "guid": "9836194",
+      "title": "FinancialJuice: Edge: Novamarine to supply platforms made at its Olbia, Italy production facility",
+      "link": "https://www.financialjuice.com/News/9836194/Edge-Novamarine-to-supply-platforms-made-at-its-Olbia-Italy-production-facility.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:41:06 GMT",
+      "publishedAt": "2026-11-04T05:41:06Z",
+      "description": ""
+    },
+    {
+      "guid": "9836181",
+      "title": "FinancialJuice: Trump acknowledges Iran war partly responsible for Republican losses: WSJ",
+      "link": "https://www.financialjuice.com/News/9836181/Trump-acknowledges-Iran-war-partly-responsible-for-Republican-losses-WSJ.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:20:24 GMT",
+      "publishedAt": "2026-11-04T05:20:24Z",
+      "description": ""
+    },
+    {
+      "guid": "9836180",
+      "title": "FinancialJuice: Democratic challenger Troy Dale Jackson beats Republican incumbent Susan Collins in Maine US Senate race, CNN projects",
+      "link": "https://www.financialjuice.com/News/9836180/Democratic-challenger-Troy-Dale-Jackson-beats-Republican-incumbent-Susan-Collins-in-Maine-US-Senate-race-CNN-projects.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:17:46 GMT",
+      "publishedAt": "2026-11-04T05:17:46Z",
+      "description": ""
+    },
+    {
+      "guid": "9836179",
+      "title": "FinancialJuice: Susan Collins concedes Maine Senate race: NBC News",
+      "link": "https://www.financialjuice.com/News/9836179/Susan-Collins-concedes-Maine-Senate-race-NBC-News.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:17:29 GMT",
+      "publishedAt": "2026-11-04T05:17:29Z",
+      "description": ""
+    },
+    {
+      "guid": "9836178",
+      "title": "FinancialJuice: Trump: I will accept election outcome",
+      "link": "https://www.financialjuice.com/News/9836178/Trump-I-will-accept-election-outcome.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:17:10 GMT",
+      "publishedAt": "2026-11-04T05:17:10Z",
+      "description": ""
+    },
+    {
+      "guid": "9836174",
+      "title": "FinancialJuice: Trump: I don't expect to alter cabinet",
+      "link": "https://www.financialjuice.com/News/9836174/Trump-I-dont-expect-to-alter-cabinet.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:08:55 GMT",
+      "publishedAt": "2026-11-04T05:08:55Z",
+      "description": ""
+    },
+    {
+      "guid": "9836173",
+      "title": "FinancialJuice: Trump: I can cooperate with Democrats on immigration",
+      "link": "https://www.financialjuice.com/News/9836173/Trump-I-can-cooperate-with-Democrats-on-immigration.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:08:45 GMT",
+      "publishedAt": "2026-11-04T05:08:45Z",
+      "description": ""
+    },
+    {
+      "guid": "9836172",
+      "title": "FinancialJuice: Trump: I could collaborate with Democrats on many issues",
+      "link": "https://www.financialjuice.com/News/9836172/Trump-I-could-collaborate-with-Democrats-on-many-issues.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:07:24 GMT",
+      "publishedAt": "2026-11-04T05:07:24Z",
+      "description": ""
+    },
+    {
+      "guid": "9836171",
+      "title": "FinancialJuice: Trump: Democrats performed well",
+      "link": "https://www.financialjuice.com/News/9836171/Trump-Democrats-performed-well.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:05:46 GMT",
+      "publishedAt": "2026-11-04T05:05:46Z",
+      "description": ""
+    },
+    {
+      "guid": "9836170",
+      "title": "FinancialJuice: Democrat Peggy Flanagan beats Republican Michele Tafoya in contest for democratic-held US Senate seat in Minnesota - NBC News",
+      "link": "https://www.financialjuice.com/News/9836170/Democrat-Peggy-Flanagan-beats-Republican-Michele-Tafoya-in-contest-for-democratic-held-US-Senate-seat-in-Minnesota---NBC-News.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:05:38 GMT",
+      "publishedAt": "2026-11-04T05:05:38Z",
+      "description": ""
+    },
+    {
+      "guid": "9836169",
+      "title": "FinancialJuice: Trump on Iran: people likely unwilling to accept short-term gasoline price impact",
+      "link": "https://www.financialjuice.com/News/9836169/Trump-on-Iran-people-likely-unwilling-to-accept-short-term-gasoline-price-impact.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:05:25 GMT",
+      "publishedAt": "2026-11-04T05:05:25Z",
+      "description": ""
+    },
+    {
+      "guid": "9836168",
+      "title": "FinancialJuice: Democrat Peggy Flanagan wins over Republican Michele Tafoya in contest for democratic-held Minnesota Senate seat: Decision Desk HQ",
+      "link": "https://www.financialjuice.com/News/9836168/Democrat-Peggy-Flanagan-wins-over-Republican-Michele-Tafoya-in-contest-for-democratic-held-Minnesota-Senate-seat-Decision-Desk-HQ.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:03:44 GMT",
+      "publishedAt": "2026-11-04T05:03:44Z",
+      "description": ""
+    },
+    {
+      "guid": "9836167",
+      "title": "FinancialJuice: Trump: part of outcome related to Iran",
+      "link": "https://www.financialjuice.com/News/9836167/Trump-part-of-outcome-related-to-Iran.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:01:30 GMT",
+      "publishedAt": "2026-11-04T05:01:30Z",
+      "description": ""
+    },
+    {
+      "guid": "9836139",
+      "title": "FinancialJuice: Trump: Democrats will send insane measures and I will veto them",
+      "link": "https://www.financialjuice.com/News/9836139/Trump-Democrats-will-send-insane-measures-and-I-will-veto-them.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:00:51 GMT",
+      "publishedAt": "2026-11-04T05:00:51Z",
+      "description": ""
+    },
+    {
+      "guid": "9836136",
+      "title": "FinancialJuice: India HSBC and S&P Global October final services PMI at 55.8 vs flash 56.2",
+      "link": "https://www.financialjuice.com/News/9836136/India-HSBC-and-SP-Global-October-final-services-PMI-at-558-vs-flash-562.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 05:00:04 GMT",
+      "publishedAt": "2026-11-04T05:00:04Z",
+      "description": ""
+    },
+    {
+      "guid": "9836097",
+      "title": "FinancialJuice: NBC News projects Democrats to gain control of US Senate",
+      "link": "https://www.financialjuice.com/News/9836097/NBC-News-projects-Democrats-to-gain-control-of-US-Senate.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:25:21 GMT",
+      "publishedAt": "2026-11-04T04:25:21Z",
+      "description": ""
+    },
+    {
+      "guid": "9836096",
+      "title": "FinancialJuice: Democrat Josh Turek beats Republican Ashley Hinson in race for GOP-held US Senate seat in Iowa - NBC News",
+      "link": "https://www.financialjuice.com/News/9836096/Democrat-Josh-Turek-beats-Republican-Ashley-Hinson-in-race-for-GOP-held-US-Senate-seat-in-Iowa---NBC-News.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:24:26 GMT",
+      "publishedAt": "2026-11-04T04:24:26Z",
+      "description": ""
+    },
+    {
+      "guid": "9836095",
+      "title": "FinancialJuice: Democrat Gina Hinojosa beats Republican incumbent Greg Abbott in Texas governor race - NBC News",
+      "link": "https://www.financialjuice.com/News/9836095/Democrat-Gina-Hinojosa-beats-Republican-incumbent-Greg-Abbott-in-Texas-governor-race---NBC-News.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:20:53 GMT",
+      "publishedAt": "2026-11-04T04:20:53Z",
+      "description": ""
+    },
+    {
+      "guid": "9836093",
+      "title": "FinancialJuice: Democrat Josh Turek defeats Republican Ashley Hinson in race for GOP-held US Senate seat in Iowa: Decision Desk HQ",
+      "link": "https://www.financialjuice.com/News/9836093/Democrat-Josh-Turek-defeats-Republican-Ashley-Hinson-in-race-for-GOP-held-US-Senate-seat-in-Iowa-Decision-Desk-HQ.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:17:54 GMT",
+      "publishedAt": "2026-11-04T04:17:54Z",
+      "description": ""
+    },
+    {
+      "guid": "9836089",
+      "title": "FinancialJuice: Democratic challenger Adam Hamilton defeats Republican incumbent Roger Marshall in Kansas US Senate race, CNN projects",
+      "link": "https://www.financialjuice.com/News/9836089/Democratic-challenger-Adam-Hamilton-defeats-Republican-incumbent-Roger-Marshall-in-Kansas-US-Senate-race-CNN-projects.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:15:47 GMT",
+      "publishedAt": "2026-11-04T04:15:47Z",
+      "description": ""
+    },
+    {
+      "guid": "9836086",
+      "title": "FinancialJuice: United Arab Emirates S&P Global composite PMI falls to 54.8 in October from 55.3 in September",
+      "link": "https://www.financialjuice.com/News/9836086/United-Arab-Emirates-SP-Global-composite-PMI-falls-to-548-in-October-from-553-in-September.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:15:03 GMT",
+      "publishedAt": "2026-11-04T04:15:03Z",
+      "description": ""
+    },
+    {
+      "guid": "9836085",
+      "title": "FinancialJuice: Democrat Rob Sand beats Republican Zach Lahn in race for Iowa governor held by GOP - NBC News",
+      "link": "https://www.financialjuice.com/News/9836085/Democrat-Rob-Sand-beats-Republican-Zach-Lahn-in-race-for-Iowa-governor-held-by-GOP---NBC-News.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:13:18 GMT",
+      "publishedAt": "2026-11-04T04:13:18Z",
+      "description": ""
+    },
+    {
+      "guid": "9836084",
+      "title": "FinancialJuice: Democrat Gina Hinojosa beats Republican incumbent Greg Abbott in Texas governor race, CNN projects",
+      "link": "https://www.financialjuice.com/News/9836084/Democrat-Gina-Hinojosa-beats-Republican-incumbent-Greg-Abbott-in-Texas-governor-race-CNN-projects.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:02:38 GMT",
+      "publishedAt": "2026-11-04T04:02:38Z",
+      "description": ""
+    },
+    {
+      "guid": "9836071",
+      "title": "FinancialJuice: Democratic challenger Sherrod Brown defeats Republican incumbent Jon Husted in Ohio Senate race, CNN projects",
+      "link": "https://www.financialjuice.com/News/9836071/Democratic-challenger-Sherrod-Brown-defeats-Republican-incumbent-Jon-Husted-in-Ohio-Senate-race-CNN-projects.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:00:51 GMT",
+      "publishedAt": "2026-11-04T04:00:51Z",
+      "description": ""
+    },
+    {
+      "guid": "9836070",
+      "title": "FinancialJuice: Democrat James Talarico defeats Republican Ken Paxton in race for GOP-held US Senate seat in Texas, CNN projects:",
+      "link": "https://www.financialjuice.com/News/9836070/Democrat-James-Talarico-defeats-Republican-Ken-Paxton-in-race-for-GOP-held-US-Senate-seat-in-Texas-CNN-projects.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 04:00:51 GMT",
+      "publishedAt": "2026-11-04T04:00:51Z",
+      "description": ""
+    },
+    {
+      "guid": "9836068",
+      "title": "FinancialJuice: Democrat James Talarico beats Republican Ken Paxton in race for Republican-held US Senate seat in Texas - NBC News",
+      "link": "https://www.financialjuice.com/News/9836068/Democrat-James-Talarico-beats-Republican-Ken-Paxton-in-race-for-Republican-held-US-Senate-seat-in-Texas---NBC-News.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 03:53:16 GMT",
+      "publishedAt": "2026-11-04T03:53:16Z",
+      "description": ""
+    }
+  ]
 }
