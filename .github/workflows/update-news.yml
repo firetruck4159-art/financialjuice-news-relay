@@ -1,0 +1,49 @@
+name: Refresh FinancialJuice news
+
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: financialjuice-news-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Fetch and validate relay news
+        id: fetch
+        continue-on-error: true
+        env:
+          RELAY_URL: 'https://financialjuice-rss-relay.firetruck4159.workers.dev/?limit=50'
+        run: python scripts/fetch_news.py
+      - name: Save status and news snapshot
+        run: |
+          if git diff --quiet -- news.json; then
+            echo 'No snapshot changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add news.json
+          git commit -m 'chore: refresh FinancialJuice snapshot'
+          git push
+      - name: Mark collection failure
+        if: steps.fetch.outcome == 'failure'
+        run: |
+          echo 'Collection failed; news.json status is error, not no news.'
+          exit 1
