@@ -1,0 +1,48 @@
+# FinancialJuice 뉴스 중계 (GitHub Actions)
+
+> 상태: **구현 초안**. 아직 실제 Worker→GitHub Actions→ChatGPT 전체 경로 테스트를 통과하지 않았습니다.
+
+## 목적
+
+기존 Cloudflare Worker가 만든 FinancialJuice RSS JSON을 GitHub Actions가 15분 간격으로 읽어, ChatGPT에서 접근 가능한 공개 `news.json`으로 제공합니다. 별도의 AI API, 개인 PC 상시 실행, DNS 변경은 필요하지 않습니다.
+
+```text
+FinancialJuice RSS → 기존 Cloudflare Worker → GitHub Actions → news.json (공개) → ChatGPT 예약 자동화
+```
+
+## 설치 및 시험
+
+1. 공개 저장소의 `.github/workflows/update-news.yml`이 기본 브랜치에 있는지 확인합니다.
+2. GitHub `Settings → Actions → General → Workflow permissions`에서 `Read and write permissions`를 확인합니다. 저장소/조직 정책이 쓰기를 제한할 수도 있습니다.
+3. `Actions` 탭에서 `Refresh FinancialJuice news` → **Run workflow**를 눌러 1회 실행합니다.
+4. 실행 후 `news.json`의 `status: ok`, 실제 기사 `guid`, `pubDate`, `link`, `lastSuccessAt`을 확인합니다.
+5. `status: error`라면 Actions 실행 로그를 확인하되, 오류를 '뉴스 없음'으로 해석하지 않습니다.
+6. ChatGPT 일반 조회 **및 예약 자동화 실행 환경**에서 공개 `news.json`의 실수신을 구분 검증합니다.
+7. 기존 FinancialJuice 예약 자동화는 **사용자 승인 전에 재활성화하지 않습니다**.
+
+## 공개 JSON
+
+`https://raw.githubusercontent.com/firetruck4159-art/financialjuice-news-relay/main/news.json`
+
+- `status`: `not_initialized` / `ok` / `error`
+- `lastAttemptAt`, `lastSuccessAt`: 수집 시도 및 성공 UTC 시각
+- `sourceNewestAt`: 수신 기사 중 가장 최근 게시일
+- `upstreamItemCount`: Worker가 반환한 항목 개수
+- `articles`: 최근 12시간 이내 최신 기사 최대 150건 (GUID, 제목, 링크, 게시 시각, 짧은 설명)
+
+## 주의사항
+
+- **검증 전 상태**: `news.json`의 초기값은 `not_initialized`입니다. GitHub Actions 첫 실행 전에는 실제 수집 결과가 아닙니다.
+- `?limit=50`을 요청하지만 Worker의 지원 상한은 아직 검증되지 않았습니다. 첫 실행 후 `upstreamItemCount`를 확인하세요.
+- GitHub Actions 예약 실행은 지연되거나 누락될 수 있습니다. 공개 저장소에서 장기간 활동이 없으면 예약 실행이 비활성화될 수도 있습니다.
+- 공개 저장소에는 인증 토큰과 개인정보를 넣지 마세요. 뉴스 원문 전체를 복제·재배포하지 않습니다.
+- 공식 RSS 이용조건 및 재배포 범위를 확인하세요.
+- 중복 분석·중복 발송을 완전히 막으려면 ChatGPT 예약 실행에서 발송 이력의 영구 관리가 별도로 필요합니다.
+- 실패 시 기존 기사를 남겨두지만 `status: error`를 표시합니다.
+- 15분마다 갱신하면 최대 약 96회/일 커밋이 생성될 수 있습니다. 운영 안정화 후 빈도·보관 구조를 최적화할 계획입니다.
+
+## 개발자 단위 시험
+
+```bash
+python -m unittest discover -s tests -v
+```
