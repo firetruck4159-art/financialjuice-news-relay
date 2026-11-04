@@ -2,14 +2,414 @@
   "schemaVersion": 1,
   "source": "FinancialJuice RSS via existing Cloudflare Worker",
   "status": "ok",
-  "lastAttemptAt": "2026-11-04T07:35:24Z",
-  "lastSuccessAt": "2026-11-04T07:35:24Z",
-  "sourceNewestAt": "2026-11-04T07:30:13Z",
+  "lastAttemptAt": "2026-11-04T15:52:18Z",
+  "lastSuccessAt": "2026-11-04T15:52:18Z",
+  "sourceNewestAt": "2026-11-04T15:43:55Z",
   "upstreamItemCount": 50,
   "retentionHours": 12,
-  "articleCount": 50,
+  "articleCount": 100,
   "lastError": null,
   "articles": [
+    {
+      "guid": "9837107",
+      "title": "FinancialJuice: US VP Vance: The relationship with Israel is one reason the GOP lost. The reason we lost is the war.",
+      "link": "https://www.financialjuice.com/News/9837107/US-VP-Vance-The-relationship-with-Israel-is-one-reason-the-GOP-lost-The-reason-we-lost-is-the-war.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:43:55 GMT",
+      "publishedAt": "2026-11-04T15:43:55Z",
+      "description": ""
+    },
+    {
+      "guid": "9837105",
+      "title": "FinancialJuice: US Gulf Coast Crude stock fell in the latest week to its lowest since December 2022 - EIA.",
+      "link": "https://www.financialjuice.com/News/9837105/US-Gulf-Coast-Crude-stock-fell-in-the-latest-week-to-its-lowest-since-December-2022---EIA.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:35:50 GMT",
+      "publishedAt": "2026-11-04T15:35:50Z",
+      "description": ""
+    },
+    {
+      "guid": "9837068",
+      "title": "FinancialJuice: EIA Crude Cushing Inventories  Actual 0.280M (Forecast -, Previous -0.624M)",
+      "link": "https://www.financialjuice.com/News/9837068/EIA-Crude-Cushing-Inventories--Actual-0280M-Forecast---Previous--0624M.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:31:48 GMT",
+      "publishedAt": "2026-11-04T15:31:48Z",
+      "description": ""
+    },
+    {
+      "guid": "9837067",
+      "title": "FinancialJuice: EIA Distillate Inventories Actual -3.565M (Forecast -1.5M, Previous -1.462M)",
+      "link": "https://www.financialjuice.com/News/9837067/EIA-Distillate-Inventories-Actual--3565M-Forecast--15M-Previous--1462M.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:30:02 GMT",
+      "publishedAt": "2026-11-04T15:30:02Z",
+      "description": ""
+    },
+    {
+      "guid": "9837066",
+      "title": "FinancialJuice: EIA Gasoline Inventories Actual -0.222M (Forecast 1M, Previous 3.870M)",
+      "link": "https://www.financialjuice.com/News/9837066/EIA-Gasoline-Inventories-Actual--0222M-Forecast-1M-Previous-3870M.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:30:01 GMT",
+      "publishedAt": "2026-11-04T15:30:01Z",
+      "description": ""
+    },
+    {
+      "guid": "9837065",
+      "title": "FinancialJuice: EIA Crude Oil Inventories Actual -0.865M (Forecast -1.7M, Previous -1.892M)",
+      "link": "https://www.financialjuice.com/News/9837065/EIA-Crude-Oil-Inventories-Actual--0865M-Forecast--17M-Previous--1892M.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:30:01 GMT",
+      "publishedAt": "2026-11-04T15:30:01Z",
+      "description": ""
+    },
+    {
+      "guid": "9837064",
+      "title": "FinancialJuice: EU Chip Design platform to mobilize €525m investment.",
+      "link": "https://www.financialjuice.com/News/9837064/EU-Chip-Design-platform-to-mobilize-525m-investment.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:21:00 GMT",
+      "publishedAt": "2026-11-04T15:21:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9837063",
+      "title": "FinancialJuice: Crypto Fear & Greed Index: 34/100 - Fear",
+      "link": "https://www.financialjuice.com/News/9837063/Crypto-Fear--Greed-Index-34100---Fear.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:19:03 GMT",
+      "publishedAt": "2026-11-04T15:19:03Z",
+      "description": ""
+    },
+    {
+      "guid": "9837062",
+      "title": "FinancialJuice: Fear & Greed Index: 29/100 - Fear",
+      "link": "https://www.financialjuice.com/News/9837062/Fear--Greed-Index-29100---Fear.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:18:19 GMT",
+      "publishedAt": "2026-11-04T15:18:19Z",
+      "description": ""
+    },
+    {
+      "guid": "9837047",
+      "title": "FinancialJuice: US House Speaker Johnson will not run for the House GOP leader role - CNN.",
+      "link": "https://www.financialjuice.com/News/9837047/US-House-Speaker-Johnson-will-not-run-for-the-House-GOP-leader-role---CNN.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:03:43 GMT",
+      "publishedAt": "2026-11-04T15:03:43Z",
+      "description": ""
+    },
+    {
+      "guid": "9837021",
+      "title": "FinancialJuice: US ISM Services PMI Actual 54.5 (Forecast 54.8, Previous 54.9)",
+      "link": "https://www.financialjuice.com/News/9837021/US-ISM-Services-PMI-Actual-545-Forecast-548-Previous-549.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:00:00 GMT",
+      "publishedAt": "2026-11-04T15:00:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9837020",
+      "title": "FinancialJuice: US ISM Services Employment Actual 51.4 (Forecast 50, Previous 50.1)",
+      "link": "https://www.financialjuice.com/News/9837020/US-ISM-Services-Employment-Actual-514-Forecast-50-Previous-501.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:00:00 GMT",
+      "publishedAt": "2026-11-04T15:00:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9837019",
+      "title": "FinancialJuice: US ISM Services New Orders Actual 55.9 (Forecast 58.5, Previous 59.8)",
+      "link": "https://www.financialjuice.com/News/9837019/US-ISM-Services-New-Orders-Actual-559-Forecast-585-Previous-598.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:00:00 GMT",
+      "publishedAt": "2026-11-04T15:00:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9837018",
+      "title": "FinancialJuice: US ISM Services Prices Paid Actual 73 (Forecast 74.6, Previous 74.0)",
+      "link": "https://www.financialjuice.com/News/9837018/US-ISM-Services-Prices-Paid-Actual-73-Forecast-746-Previous-740.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 15:00:00 GMT",
+      "publishedAt": "2026-11-04T15:00:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9836995",
+      "title": "FinancialJuice: US S&P Services PMI Final Actual 56.1 (Forecast 57.9, Previous 57.9)",
+      "link": "https://www.financialjuice.com/News/9836995/US-SP-Services-PMI-Final-Actual-561-Forecast-579-Previous-579.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:45:00 GMT",
+      "publishedAt": "2026-11-04T14:45:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9836994",
+      "title": "FinancialJuice: US S&P Composite PMI Final Actual 55.9 (Forecast 57.3, Previous 57.6)",
+      "link": "https://www.financialjuice.com/News/9836994/US-SP-Composite-PMI-Final-Actual-559-Forecast-573-Previous-576.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:45:00 GMT",
+      "publishedAt": "2026-11-04T14:45:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9836993",
+      "title": "FinancialJuice: Bank of America cuts AMD price target to $650 from $720. $AMD",
+      "link": "https://www.financialjuice.com/News/9836993/Bank-of-America-cuts-AMD-price-target-to-650-from-720-AMD.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:39:34 GMT",
+      "publishedAt": "2026-11-04T14:39:34Z",
+      "description": ""
+    },
+    {
+      "guid": "9836991",
+      "title": "FinancialJuice: OpenAI is to acquire Pierre Computer Company.",
+      "link": "https://www.financialjuice.com/News/9836991/OpenAI-is-to-acquire-Pierre-Computer-Company.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:31:55 GMT",
+      "publishedAt": "2026-11-04T14:31:55Z",
+      "description": ""
+    },
+    {
+      "guid": "9836986",
+      "title": "FinancialJuice: MOO Imbalance",
+      "link": "https://www.financialjuice.com/News/9836986/MOO-Imbalance.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:30:36 GMT",
+      "publishedAt": "2026-11-04T14:30:36Z",
+      "description": "S&amp;P 500: +132 mln<br />Nasdaq 100: -29 mln<br />Dow 30: +14 mln<br />Mag 7: +5 mln"
+    },
+    {
+      "guid": "9836982",
+      "title": "FinancialJuice: The UAE mulls a third Crude oil pipeline to avoid the Strait of Hormuz.",
+      "link": "https://www.financialjuice.com/News/9836982/The-UAE-mulls-a-third-Crude-oil-pipeline-to-avoid-the-Strait-of-Hormuz.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:26:21 GMT",
+      "publishedAt": "2026-11-04T14:26:21Z",
+      "description": ""
+    },
+    {
+      "guid": "9836965",
+      "title": "FinancialJuice: Iran's State Media citing IRGC; A US MQ1 drone was destroyed by Iranian air defenses over Qeshm Island.",
+      "link": "https://www.financialjuice.com/News/9836965/Irans-State-Media-citing-IRGC-A-US-MQ1-drone-was-destroyed-by-Iranian-air-defenses-over-Qeshm-Island.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:11:12 GMT",
+      "publishedAt": "2026-11-04T14:11:12Z",
+      "description": ""
+    },
+    {
+      "guid": "9836964",
+      "title": "FinancialJuice: Kremlin on Melania Trump meeting, Peskov: Trilateral talks to focus on security guarantee - TASS.",
+      "link": "https://www.financialjuice.com/News/9836964/Kremlin-on-Melania-Trump-meeting-Peskov-Trilateral-talks-to-focus-on-security-guarantee---TASS.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 14:02:37 GMT",
+      "publishedAt": "2026-11-04T14:02:37Z",
+      "description": ""
+    },
+    {
+      "guid": "9836941",
+      "title": "FinancialJuice: Effective Fed funds rate 3.88% November 3th vs 3.88% November 2nd.",
+      "link": "https://www.financialjuice.com/News/9836941/Effective-Fed-funds-rate-388-November-3th-vs-388-November-2nd.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:59:52 GMT",
+      "publishedAt": "2026-11-04T13:59:52Z",
+      "description": ""
+    },
+    {
+      "guid": "9836940",
+      "title": "FinancialJuice: UniCredit: Democratic Midterm Gains Shift Focus to Congressional Oversight and Policy Constraints - FJElite",
+      "link": "https://www.financialjuice.com/News/9836940/UniCredit-Democratic-Midterm-Gains-Shift-Focus-to-Congressional-Oversight-and-Policy-Constraints---FJElite.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:58:35 GMT",
+      "publishedAt": "2026-11-04T13:58:35Z",
+      "description": "<div>Democrats secure a majority in both chambers, with the result increasing the likelihood of stronger congressional oversight of the Trump administration. Healthcare, data-centre regulation and investigations into government contracts are likely to become key areas of focus, while tighter rules around data-centre development could slow parts of the AI inv"
+    },
+    {
+      "guid": "9836939",
+      "title": "FinancialJuice: Credit Agricole: USD Weakens as Post-Midterm Tech Selloff Raises AI Investment Concerns - FJElite",
+      "link": "https://www.financialjuice.com/News/9836939/Credit-Agricole-USD-Weakens-as-Post-Midterm-Tech-Selloff-Raises-AI-Investment-Concerns---FJElite.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:55:52 GMT",
+      "publishedAt": "2026-11-04T13:55:52Z",
+      "description": "<div>The dollar is being hit by renewed weakness in US technology stocks following the midterms, reflecting the close link between USD performance and capital flows into the US tech sector. A stronger Democratic showing is seen as a headwind for the AI investment boom because of greater regulatory scrutiny around data-centre expansion, with several major dat"
+    },
+    {
+      "guid": "9836906",
+      "title": "FinancialJuice: Qualcomm: SpaceX selects Qualcomm to accelerate Starlink $SPCX $QCOM",
+      "link": "https://www.financialjuice.com/News/9836906/Qualcomm-SpaceX-selects-Qualcomm-to-accelerate-Starlink-SPCX-QCOM.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:39:57 GMT",
+      "publishedAt": "2026-11-04T13:39:57Z",
+      "description": "<ul><li>SpaceX to deploy tens of thousands of 5G sites</li><li>Qualcomm to supply QRU100 and QDU100 to Starlink Mobile</li><li>Starlink Mobile rollout to start in 2027</li><li>SpaceX to use Qualcomm Dragonwing for its 5G network</li><li>SpaceX selects Qualcomm to accelerate Starlink Mobile</li></ul>"
+    },
+    {
+      "guid": "9836905",
+      "title": "FinancialJuice: US Sentiment: Democratic Sweep Causes Rotation Away from AI & Musk-linked Names - FJElite",
+      "link": "https://www.financialjuice.com/News/9836905/US-Sentiment-Democratic-Sweep-Causes-Rotation-Away-from-AI--Musk-linked-Names---FJElite.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:36:54 GMT",
+      "publishedAt": "2026-11-04T13:36:54Z",
+      "description": ""
+    },
+    {
+      "guid": "9836904",
+      "title": "FinancialJuice: US Treasury Quarterly Refunding",
+      "link": "https://www.financialjuice.com/News/9836904/US-Treasury-Quarterly-Refunding.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:35:44 GMT",
+      "publishedAt": "2026-11-04T13:35:44Z",
+      "description": "<ul><li>US Treasury to sell $42B in 10-year notes on November 10th</li><li>US Treasury to sell $25B in 30-year bonds on November 12th</li><li>US sets quarterly refunding at $125B, in line with estimates</li></ul>"
+    },
+    {
+      "guid": "9836903",
+      "title": "FinancialJuice: US Trade Balance Summary",
+      "link": "https://www.financialjuice.com/News/9836903/US-Trade-Balance-Summary-.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:33:25 GMT",
+      "publishedAt": "2026-11-04T13:33:25Z",
+      "description": "<ul><li>US September oil import price was $80.48/bbl vs. $76.94/bbl in August, up 29.7% from $62.03/bbl in September 2025</li><li>US-China September trade deficit was $21.87B vs. $18.40B in August</li><li>US September capital goods imports were $157.97B vs. $146.41B in August</li><li>US September exports were $321.51B vs. $315.67B in August; imports were $42"
+    },
+    {
+      "guid": "9836878",
+      "title": "FinancialJuice: Canadian Trade Balance Actual 5.35B (Forecast 5B, Previous 4.20B, Revised 5.35B)",
+      "link": "https://www.financialjuice.com/News/9836878/Canadian-Trade-Balance-Actual-535B-Forecast-5B-Previous-420B-Revised-535B.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:30:01 GMT",
+      "publishedAt": "2026-11-04T13:30:01Z",
+      "description": ""
+    },
+    {
+      "guid": "9836877",
+      "title": "FinancialJuice: US Trade Balance Actual -105B (Forecast -107.9B, Previous -105.6B, Revised $-105.7B)",
+      "link": "https://www.financialjuice.com/News/9836877/US-Trade-Balance-Actual--105B-Forecast--1079B-Previous--1056B-Revised--1057B.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:30:00 GMT",
+      "publishedAt": "2026-11-04T13:30:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9836876",
+      "title": "FinancialJuice: Meta gets record €53 billion of orders for debut Euro bonds $META",
+      "link": "https://www.financialjuice.com/News/9836876/Meta-gets-record-53-billion-of-orders-for-debut-Euro-bonds-META.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:26:30 GMT",
+      "publishedAt": "2026-11-04T13:26:30Z",
+      "description": ""
+    },
+    {
+      "guid": "9836875",
+      "title": "FinancialJuice: Google to backstop some Anthropic obligations for Terawulf $GOOGL",
+      "link": "https://www.financialjuice.com/News/9836875/Google-to-backstop-some-Anthropic-obligations-for-Terawulf-GOOGL.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:23:28 GMT",
+      "publishedAt": "2026-11-04T13:23:28Z",
+      "description": ""
+    },
+    {
+      "guid": "9836854",
+      "title": "FinancialJuice: US ADP Employment Change Actual 86k (Forecast 67k, Previous 90k)",
+      "link": "https://www.financialjuice.com/News/9836854/US-ADP-Employment-Change-Actual-86k-Forecast-67k-Previous-90k.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 13:15:00 GMT",
+      "publishedAt": "2026-11-04T13:15:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9836830",
+      "title": "FinancialJuice: ECB's Knot: Europe on receiving end of US-China rivalry.",
+      "link": "https://www.financialjuice.com/News/9836830/ECBs-Knot-Europe-on-receiving-end-of-US-China-rivalry.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:54:32 GMT",
+      "publishedAt": "2026-11-04T12:54:32Z",
+      "description": ""
+    },
+    {
+      "guid": "9836829",
+      "title": "FinancialJuice: ECB's Knot: AI will bring productivity growth.",
+      "link": "https://www.financialjuice.com/News/9836829/ECBs-Knot-AI-will-bring-productivity-growth.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:51:14 GMT",
+      "publishedAt": "2026-11-04T12:51:14Z",
+      "description": ""
+    },
+    {
+      "guid": "9836828",
+      "title": "FinancialJuice: ECB's Knot: Will continue to see small shocks that lift inflation.",
+      "link": "https://www.financialjuice.com/News/9836828/ECBs-Knot-Will-continue-to-see-small-shocks-that-lift-inflation.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:49:10 GMT",
+      "publishedAt": "2026-11-04T12:49:10Z",
+      "description": ""
+    },
+    {
+      "guid": "9836827",
+      "title": "FinancialJuice: ECB's Knot: ECB may have to approach 2% goal more often from above.",
+      "link": "https://www.financialjuice.com/News/9836827/ECBs-Knot-ECB-may-have-to-approach-2-goal-more-often-from-above.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:48:10 GMT",
+      "publishedAt": "2026-11-04T12:48:10Z",
+      "description": ""
+    },
+    {
+      "guid": "9836826",
+      "title": "FinancialJuice: ECB's Knot: Core inflation, second-round effects will likely pick up.",
+      "link": "https://www.financialjuice.com/News/9836826/ECBs-Knot-Core-inflation-second-round-effects-will-likely-pick-up.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:46:48 GMT",
+      "publishedAt": "2026-11-04T12:46:48Z",
+      "description": ""
+    },
+    {
+      "guid": "9836821",
+      "title": "FinancialJuice: Meta gets record €53 billion demand for debut euro bond sale.",
+      "link": "https://www.financialjuice.com/News/9836821/Meta-gets-record-53-billion-demand-for-debut-euro-bond-sale.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:44:39 GMT",
+      "publishedAt": "2026-11-04T12:44:39Z",
+      "description": ""
+    },
+    {
+      "guid": "9836820",
+      "title": "FinancialJuice: German Fin. Min. Klingbeil: We will work with US Democrats to renew ties.",
+      "link": "https://www.financialjuice.com/News/9836820/German-Fin-Min-Klingbeil-We-will-work-with-US-Democrats-to-renew-ties.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:31:32 GMT",
+      "publishedAt": "2026-11-04T12:31:32Z",
+      "description": ""
+    },
+    {
+      "guid": "9836793",
+      "title": "FinancialJuice: Meta seeks as much as €9 billion from debut euro bond sale.",
+      "link": "https://www.financialjuice.com/News/9836793/Meta-seeks-as-much-as-9-billion-from-debut-euro-bond-sale.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:19:14 GMT",
+      "publishedAt": "2026-11-04T12:19:14Z",
+      "description": ""
+    },
+    {
+      "guid": "9836748",
+      "title": "FinancialJuice: US MBA 30-Yr Mortgage Rate Actual 7.30% (Forecast -, Previous 7.37%)",
+      "link": "https://www.financialjuice.com/News/9836748/US-MBA-30-Yr-Mortgage-Rate-Actual-730-Forecast---Previous-737.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:01:44 GMT",
+      "publishedAt": "2026-11-04T12:01:44Z",
+      "description": ""
+    },
+    {
+      "guid": "9836755",
+      "title": "FinancialJuice: $MCD McDonald's Q3 Earnings",
+      "link": "https://www.financialjuice.com/News/9836755/MCD-McDonalds-Q3-Earnings.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:01:03 GMT",
+      "publishedAt": "2026-11-04T12:01:03Z",
+      "description": "<div>Adj. EPS $3.57, est. $3.40</div><div>Rev. $7.16B, est. $7.29B</div><div>Comp sales +1.5%, est. +1.35%</div><div>US comp sales -0.2%, est. -0.47%</div><div>International operated markets comp sales +1.4%, est. +2.07%</div><div>International developmental licensed markets comp sales +4.2%, est. +3.15%</div><div>EPS $3.51 vs. $3.18 y/y</div>"
+    },
+    {
+      "guid": "9836747",
+      "title": "FinancialJuice: US MBA Mortgage Applications Actual -1.2% (Forecast -, Previous 3.4%)",
+      "link": "https://www.financialjuice.com/News/9836747/US-MBA-Mortgage-Applications-Actual--12-Forecast---Previous-34.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 12:00:00 GMT",
+      "publishedAt": "2026-11-04T12:00:00Z",
+      "description": ""
+    },
+    {
+      "guid": "9836746",
+      "title": "FinancialJuice: $UBER Uber Q3 Earnings",
+      "link": "https://www.financialjuice.com/News/9836746/UBER-Uber-Q3-Earnings.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 11:57:02 GMT",
+      "publishedAt": "2026-11-04T11:57:02Z",
+      "description": "<div>Adj. EPS $0.88, est. $0.87</div><div>Rev. $14.77B, est. $14.65B</div><div>Gross bookings $59.82B, est. $59.79B</div><div>Mobility bookings $29.51B, est. $29.88B</div><div>Delivery bookings $28.54B, est. $28.41B</div><div>Adj. EBITDA $2.96B, est. $2.93B</div><div>Adj. oper. income $2.3B, est. $2.25B</div><div>Adj. net income $1.8B, est. $1.78B</div><div>"
+    },
+    {
+      "guid": "9836730",
+      "title": "FinancialJuice: Russia hopes Trump continues peace efforts after vote - Tass",
+      "link": "https://www.financialjuice.com/News/9836730/Russia-hopes-Trump-continues-peace-efforts-after-vote---Tass.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 11:42:42 GMT",
+      "publishedAt": "2026-11-04T11:42:42Z",
+      "description": ""
+    },
+    {
+      "guid": "9836729",
+      "title": "FinancialJuice: France Fin. Min. Lescure: France must hit 2027 deficit goal of 5% to be credible.",
+      "link": "https://www.financialjuice.com/News/9836729/France-Fin-Min-Lescure-France-must-hit-2027-deficit-goal-of-5-to-be-credible.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 11:42:18 GMT",
+      "publishedAt": "2026-11-04T11:42:18Z",
+      "description": ""
+    },
+    {
+      "guid": "9836728",
+      "title": "FinancialJuice: France Fin. Min. Lescure: No reason to revise french 2026 deficit goal of 5.4%.",
+      "link": "https://www.financialjuice.com/News/9836728/France-Fin-Min-Lescure-No-reason-to-revise-french-2026-deficit-goal-of-54.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 11:42:08 GMT",
+      "publishedAt": "2026-11-04T11:42:08Z",
+      "description": ""
+    },
+    {
+      "guid": "9836703",
+      "title": "FinancialJuice: OpenAI to buy Pierre Computer - Axios",
+      "link": "https://www.financialjuice.com/News/9836703/OpenAI-to-buy-Pierre-Computer---Axios.aspx?xy=rss",
+      "pubDate": "Wed, 04 Nov 2026 11:31:11 GMT",
+      "publishedAt": "2026-11-04T11:31:11Z",
+      "description": ""
+    },
     {
       "guid": "9836349",
       "title": "FinancialJuice: Thune plans to run for minority senate leader - Fox",
