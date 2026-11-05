@@ -23,6 +23,28 @@ KEEP_HOURS = 12
 # Do not retry rate-limit responses (429) or access denials (403).
 RETRYABLE_HTTP_STATUSES = {500, 502, 503, 504}
 
+class RelayHTTPError(RuntimeError):
+    """An HTTP error from the Worker, optionally containing an origin status."""
+
+    def __init__(self, status: int, upstream_status: int | None = None):
+        self.status = status
+        self.upstream_status = upstream_status
+        detail = f"Relay HTTP {status}"
+        if upstream_status is not None:
+            detail += f"; upstream HTTP {upstream_status}"
+        super().__init__(detail)
+
+def parse_upstream_status(error: HTTPError) -> int | None:
+    """Use only a numeric status from a bounded JSON error response."""
+    try:
+        body = error.read(4096)
+        obj = json.loads(body.decode("utf-8-sig"))
+        status = obj.get("upstreamStatus") if isinstance(obj, dict) else None
+        return status if type(status) is int and 100 <= status <= 599 else None
+    except (OSError, AttributeError, UnicodeError, ValueError, TypeError):
+        return None
+
+
 def iso_utc(value: datetime) -> str:
     return value.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
@@ -83,13 +105,16 @@ def fetch_relay(url: str) -> list[dict]:
                     raise RuntimeError("relay response exceeds 512 KiB")
             break
         except HTTPError as exc:
-            # Worker request failed. Code is safe to log; do not expose response
-            # body, headers or upstream URLs, which may contain sensitive data.
-            if exc.code in RETRYABLE_HTTP_STATUSES and attempt == 0:
+            # The Worker may wrap an origin 429 inside a relay 502. Detect it
+            # without printing raw HTTP body or headers into public Actions logs.
+            upstream = parse_upstream_status(exc)
+            retryable = (exc.code in RETRYABLE_HTTP_STATUSES
+                         and upstream not in {403, 429})
+            if retryable and attempt == 0:
                 print(f"WARN: relay HTTP {exc.code}; retry once after 3s", file=sys.stderr)
                 sleep(3)
                 continue
-            raise
+            raise RelayHTTPError(exc.code, upstream) from exc
     try:
         payload = json.loads(blob.decode("utf-8-sig"))
     except (UnicodeError, json.JSONDecodeError) as exc:
@@ -127,10 +152,12 @@ def build_snapshot(previous: dict, raw_items: list[dict], current: datetime) -> 
         "articleCount": len(retained),
         "lastError": None,
         "lastHttpStatus": 200,
+        "upstreamHttpStatus": None,
         "articles": retained,
     }
 
-def build_failure(previous: dict, current: datetime, message: str, http_status: int | None = None) -> dict:
+def build_failure(previous: dict, current: datetime, message: str, http_status: int | None = None,
+                  upstream_status: int | None = None) -> dict:
     return {
         "schemaVersion": 1,
         "source": "FinancialJuice RSS via existing Cloudflare Worker",
@@ -143,6 +170,7 @@ def build_failure(previous: dict, current: datetime, message: str, http_status: 
         "articleCount": len(previous.get("articles", [])),
         "lastError": message[:240],
         "lastHttpStatus": http_status,
+        "upstreamHttpStatus": upstream_status,
         "articles": previous.get("articles", []),
     }
 
@@ -155,17 +183,18 @@ def run() -> int:
         result = 0
         print(f"OK: fetched {len(items)} source items, retained {snapshot['articleCount']}")
     except Exception as exc:
-        http_status = exc.code if isinstance(exc, HTTPError) else None
-        if isinstance(exc, HTTPError):
-            # HTTPError is raised before entering the response context.
-            safe = f"Relay HTTP {http_status}"
+        http_status = exc.status if isinstance(exc, RelayHTTPError) else None
+        upstream_status = exc.upstream_status if isinstance(exc, RelayHTTPError) else None
+        if isinstance(exc, RelayHTTPError):
+            safe = str(exc)
         elif isinstance(exc, URLError):
             safe = "Relay network error (URLError)"
         elif isinstance(exc, (RuntimeError, ValueError)):
             safe = f"{type(exc).__name__}: {str(exc)[:150]}"
         else:
             safe = type(exc).__name__
-        snapshot = build_failure(previous, current, safe, http_status=http_status)
+        snapshot = build_failure(previous, current, safe, http_status=http_status,
+                                 upstream_status=upstream_status)
         result = 1
         print(f"ERROR: {safe}", file=sys.stderr)
     DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
