@@ -46,3 +46,19 @@ FinancialJuice RSS → 기존 Cloudflare Worker → GitHub Actions → news.json
 ```bash
 python -m unittest discover -s tests -v
 ```
+
+## 원본 요청 제한(429) 진단
+
+2026-11-06 KST GitHub Actions의 실측 시험 결과:
+
+- GitHub 예약 트리거는 작동함. 과거 수동 실행과 예약 실행에서는 JSON 수집도 성공한 이력이 있음.
+- 이후 반복되는 실패는 **Cloudflare Worker HTTP 502**이며, Worker의 JSON 오류 응답에서 **`upstreamStatus: 429`**가 확인됨.
+- 이는 FinancialJuice 원본 요청이 제한되었음을 의미함. 다만 요청 횟수, IP 제한, 차단 정책 중 정확한 적용 원인은 미확인.
+- GitHub의 `scripts/fetch_news.py`는 `lastHttpStatus`에 Worker 응답, `upstreamHttpStatus`에 Worker가 알려준 원본 응답 코드를 각각 기록함.
+- Worker의 502가 원본 429를 감싼 경우에는 **즉시 재시도하지 않음**. 일시적인 500/502/503/504이고 원본 403/429가 아닌 경우에만 3초 뒤 최대 한 번 재시도함.
+- 실패 시 `news.json`의 `status`는 `error`, `lastSuccessAt`은 과거 성공 시각 그대로이며, 기존 기사는 보존됨. `status: ok` 또는 과거 기사 존재만으로 최신 데이터라고 판단하면 안 됨.
+- GitHub 코드가 원본의 HTTP 429를 해제할 수는 없음. Cloudflare Worker의 실제 소스·실행 로그와 FinancialJuice RSS 정책/요청 제한을 확인한 뒤, 허용된 요청 빈도·캐시·대체 피드 등을 재검토해야 함.
+- 추가 요청으로 차단이 악화될 수 있으므로 이 상태에서 무제한 재시도나 강제 새로고침을 하지 말 것.
+- 네트워크나 인증정보가 필요하지 않은 단위 시험은 `Unit tests (no network)`에서 수행.
+- 진단용 임시 `schedule-probe.yml`, `diagnose-relay.yml`은 점검 후 삭제함.
+- 기존 ChatGPT 'FinancialJuice 중요 뉴스' 예약 자동화는 **비활성화 상태를 유지**하며 수정하지 않음.
