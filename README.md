@@ -1,10 +1,10 @@
 # FinancialJuice 뉴스 중계 (GitHub Actions)
 
-> 상태: **구현 초안**. 아직 실제 Worker→GitHub Actions→ChatGPT 전체 경로 테스트를 통과하지 않았습니다.
+> 운영 상태 (2026-11-06 KST): **원본 RSS HTTP 429로 예약 수집 일시 중지**. GitHub Actions 수동 실행은 유지. 기존 데이터는 보존되지만 최신 뉴스가 아닙니다. ChatGPT 원래 분석 자동화는 비활성화 상태입니다.
 
 ## 목적
 
-기존 Cloudflare Worker가 만든 FinancialJuice RSS JSON을 GitHub Actions가 15분 간격으로 읽어, ChatGPT에서 접근 가능한 공개 `news.json`으로 제공합니다. 별도의 AI API, 개인 PC 상시 실행, DNS 변경은 필요하지 않습니다.
+기존 Cloudflare Worker가 만든 FinancialJuice RSS JSON을 GitHub Actions로 읽어, ChatGPT에서 접근 가능한 공개 `news.json`으로 제공합니다. 별도의 AI API, 개인 PC 상시 실행, DNS 변경은 필요하지 않습니다.
 
 ```text
 FinancialJuice RSS → 기존 Cloudflare Worker → GitHub Actions → news.json (공개) → ChatGPT 예약 자동화
@@ -14,7 +14,7 @@ FinancialJuice RSS → 기존 Cloudflare Worker → GitHub Actions → news.json
 
 1. 공개 저장소의 `.github/workflows/update-news.yml`이 기본 브랜치에 있는지 확인합니다.
 2. GitHub `Settings → Actions → General → Workflow permissions`에서 `Read and write permissions`를 확인합니다. 저장소/조직 정책이 쓰기를 제한할 수도 있습니다.
-3. `Actions` 탭에서 `Refresh FinancialJuice news` → **Run workflow**를 눌러 1회 실행합니다.
+3. 원본 429 원인을 해결하고 재개 승인을 받은 후에만 `Actions` 탭에서 `Refresh FinancialJuice news` → **Run workflow**를 눌러 시험합니다. (현재 자동 Cron 비활성화)
 4. 실행 후 `news.json`의 `status: ok`, 실제 기사 `guid`, `pubDate`, `link`, `lastSuccessAt`을 확인합니다.
 5. `status: error`라면 Actions 실행 로그를 확인하되, 오류를 '뉴스 없음'으로 해석하지 않습니다.
 6. ChatGPT 일반 조회 **및 예약 자동화 실행 환경**에서 공개 `news.json`의 실수신을 구분 검증합니다.
@@ -62,3 +62,10 @@ python -m unittest discover -s tests -v
 - 네트워크나 인증정보가 필요하지 않은 단위 시험은 `Unit tests (no network)`에서 수행.
 - 진단용 임시 `schedule-probe.yml`, `diagnose-relay.yml`은 점검 후 삭제함.
 - 기존 ChatGPT 'FinancialJuice 중요 뉴스' 예약 자동화는 **비활성화 상태를 유지**하며 수정하지 않음.
+
+## 2026-11-06 수집 중지 기록
+
+- 이유: Worker HTTP 502의 응답 내부 `upstreamStatus: 429` 확인. 원본 요청 제한 미해결.
+- `.github/workflows/update-news.yml`에서 `schedule`만 제거하고 `workflow_dispatch` 수동 실행은 보존함.
+- 기존 `news.json`, 수집 Python 코드, 단위 테스트, GitHub 설정 및 ChatGPT 자동화는 유지.
+- 재개 조건: Cloudflare Worker의 실제 소스/캐시/요청 정책을 확인하고 승인된 방법으로 원본 429 문제 해결 후 실측 검증.
