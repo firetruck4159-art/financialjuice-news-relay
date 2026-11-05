@@ -19,28 +19,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Probe Cloudflare relay and show status only
-        env:
-          RELAY_URL: 'https://financialjuice-rss-relay.firetruck4159.workers.dev/?limit=50'
-          NEWS_JSON_PATH: /tmp/financialjuice-relay-diagnostic.json
-        shell: bash
-        run: |
-          set +e
-          python scripts/fetch_news.py
-          code=$?
-          echo "Collector exit code: $code"
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          p = Path('/tmp/financialjuice-relay-diagnostic.json')
-          if not p.exists():
-              print('No diagnostic JSON was produced')
-          else:
-              d = json.loads(p.read_text(encoding='utf-8'))
-              for key in ('status','lastAttemptAt','lastHttpStatus','lastError','upstreamItemCount'):
-                  print(f"{key}: {d.get(key)}")
-          PY
-          exit 0
       - name: Inspect safe relay HTTP error hints
         shell: bash
         run: |
@@ -63,6 +41,9 @@ jobs:
               try:
                   obj = json.loads(body)
                   print('JSON error keys:', sorted(obj.keys()) if isinstance(obj, dict) else 'not an object')
+                  if isinstance(obj, dict):
+                      upstream = obj.get('upstreamStatus')
+                      print('Upstream status:', upstream if isinstance(upstream, int) and 100 <= upstream <= 599 else 'unavailable')
               except (ValueError, TypeError):
                   print('JSON error keys: non-JSON response')
               for label, phrase in [('origin rate limit', '429'), ('access denied', '403'),
