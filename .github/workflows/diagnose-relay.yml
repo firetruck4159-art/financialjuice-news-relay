@@ -41,3 +41,35 @@ jobs:
                   print(f"{key}: {d.get(key)}")
           PY
           exit 0
+      - name: Inspect safe relay HTTP error hints
+        shell: bash
+        run: |
+          python - <<'PY'
+          from urllib.request import Request, urlopen
+          from urllib.error import HTTPError, URLError
+          import json
+          url = 'https://financialjuice-rss-relay.firetruck4159.workers.dev/?limit=50'
+          request = Request(url, headers={'Accept':'application/json','User-Agent':'FinancialJuice-JSON-Relay/1.0'})
+          try:
+              with urlopen(request, timeout=20) as response:
+                  print('HTTP status:', response.status)
+                  print('Content type:', response.headers.get('content-type', 'unknown').split(';')[0])
+          except HTTPError as e:
+              print('HTTP status:', e.code)
+              print('Content type:', e.headers.get('content-type', 'unknown').split(';')[0])
+              ra = e.headers.get('retry-after', '')
+              print('Retry-After seconds:', ra if ra.isdecimal() and len(ra) <= 5 else 'not supplied as seconds')
+              body = e.read(2048).decode('utf-8', 'replace')
+              try:
+                  obj = json.loads(body)
+                  print('JSON error keys:', sorted(obj.keys()) if isinstance(obj, dict) else 'not an object')
+              except (ValueError, TypeError):
+                  print('JSON error keys: non-JSON response')
+              for label, phrase in [('origin rate limit', '429'), ('access denied', '403'),
+                                    ('server error', '502'), ('timeout', 'timeout'),
+                                    ('upstream', 'upstream'), ('fetch failed', 'fetch failed'),
+                                    ('too many requests', 'too many requests')]:
+                  print(f'body hint {label}: {phrase in body.lower()}')
+          except URLError:
+              print('Network failure (URLError)')
+          PY
