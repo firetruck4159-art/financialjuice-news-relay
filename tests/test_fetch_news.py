@@ -1,6 +1,9 @@
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from urllib.error import HTTPError
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -53,6 +56,58 @@ class FetchNewsTests(unittest.TestCase):
                 self.assertEqual(fn.read_existing(), {})
             finally:
                 fn.DATA_PATH = original_path
+
+
+    def test_success_sets_http_status_200(self):
+        snapshot = fn.build_snapshot({}, [self.item], self.now)
+        self.assertEqual(snapshot["lastHttpStatus"], 200)
+
+    def test_429_reported_without_retry(self):
+        error = HTTPError(fn.RELAY_URL, 429, "Too Many Requests", {}, None)
+        with tempfile.TemporaryDirectory() as folder:
+            original_path = fn.DATA_PATH
+            fn.DATA_PATH = Path(folder) / "news.json"
+            try:
+                with patch.object(fn, "urlopen", side_effect=error) as opener:
+                    self.assertEqual(fn.run(), 1)
+                    self.assertEqual(opener.call_count, 1)
+                snapshot = json.loads(fn.DATA_PATH.read_text(encoding="utf-8"))
+                self.assertEqual(snapshot["status"], "error")
+                self.assertEqual(snapshot["lastHttpStatus"], 429)
+                self.assertEqual(snapshot["lastError"], "Relay HTTP 429")
+            finally:
+                fn.DATA_PATH = original_path
+
+    def test_403_not_retried(self):
+        error = HTTPError(fn.RELAY_URL, 403, "Forbidden", {}, None)
+        with patch.object(fn, "urlopen", side_effect=error) as opener:
+            with self.assertRaises(HTTPError):
+                fn.fetch_relay(fn.RELAY_URL)
+            self.assertEqual(opener.call_count, 1)
+
+    def test_503_retried_once_and_recovers(self):
+        class FakeResponse:
+            status = 200
+            def __enter__(self): return self
+            def __exit__(self, *args): return None
+            def read(self, max_bytes): return json.dumps([self_item]).encode("utf-8")
+        self_item = self.item
+        error = HTTPError(fn.RELAY_URL, 503, "Service Unavailable", {}, None)
+        with patch.object(fn, "urlopen", side_effect=[error, FakeResponse()]) as opener:
+            with patch.object(fn, "sleep") as sleeper:
+                result = fn.fetch_relay(fn.RELAY_URL)
+        self.assertEqual(opener.call_count, 2)
+        sleeper.assert_called_once_with(3)
+        self.assertEqual(result[0]["guid"], "rss-001")
+
+    def test_503_is_not_retried_indefinitely(self):
+        error = HTTPError(fn.RELAY_URL, 503, "Service Unavailable", {}, None)
+        with patch.object(fn, "urlopen", side_effect=[error, error]) as opener:
+            with patch.object(fn, "sleep") as sleeper:
+                with self.assertRaises(HTTPError):
+                    fn.fetch_relay(fn.RELAY_URL)
+        self.assertEqual(opener.call_count, 2)
+        sleeper.assert_called_once_with(3)
 
 if __name__ == "__main__":
     unittest.main()
