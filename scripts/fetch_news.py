@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 import os
 import sys
+from time import sleep
+from urllib.error import HTTPError, URLError
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
@@ -18,6 +20,8 @@ RELAY_URL = os.environ.get(
 )
 MAX_ITEMS = 150
 KEEP_HOURS = 12
+# Do not retry rate-limit responses (429) or access denials (403).
+RETRYABLE_HTTP_STATUSES = {500, 502, 503, 504}
 
 def iso_utc(value: datetime) -> str:
     return value.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
@@ -69,12 +73,23 @@ def fetch_relay(url: str) -> list[dict]:
     if parts.scheme != "https" or not parts.netloc:
         raise RuntimeError("RELAY_URL must be HTTPS")
     request = Request(url, headers={"Accept": "application/json", "User-Agent": "FinancialJuice-JSON-Relay/1.0"})
-    with urlopen(request, timeout=20) as response:
-        if response.status != 200:
-            raise RuntimeError(f"upstream returned HTTP {response.status}")
-        blob = response.read(512 * 1024 + 1)
-        if len(blob) > 512 * 1024:
-            raise RuntimeError("relay response exceeds 512 KiB")
+    for attempt in range(2):
+        try:
+            with urlopen(request, timeout=20) as response:
+                if response.status != 200:
+                    raise RuntimeError(f"relay returned HTTP {response.status}")
+                blob = response.read(512 * 1024 + 1)
+                if len(blob) > 512 * 1024:
+                    raise RuntimeError("relay response exceeds 512 KiB")
+            break
+        except HTTPError as exc:
+            # Worker request failed. Code is safe to log; do not expose response
+            # body, headers or upstream URLs, which may contain sensitive data.
+            if exc.code in RETRYABLE_HTTP_STATUSES and attempt == 0:
+                print(f"WARN: relay HTTP {exc.code}; retry once after 3s", file=sys.stderr)
+                sleep(3)
+                continue
+            raise
     try:
         payload = json.loads(blob.decode("utf-8-sig"))
     except (UnicodeError, json.JSONDecodeError) as exc:
@@ -111,10 +126,11 @@ def build_snapshot(previous: dict, raw_items: list[dict], current: datetime) -> 
         "retentionHours": KEEP_HOURS,
         "articleCount": len(retained),
         "lastError": None,
+        "lastHttpStatus": 200,
         "articles": retained,
     }
 
-def build_failure(previous: dict, current: datetime, message: str) -> dict:
+def build_failure(previous: dict, current: datetime, message: str, http_status: int | None = None) -> dict:
     return {
         "schemaVersion": 1,
         "source": "FinancialJuice RSS via existing Cloudflare Worker",
@@ -126,6 +142,7 @@ def build_failure(previous: dict, current: datetime, message: str) -> dict:
         "retentionHours": KEEP_HOURS,
         "articleCount": len(previous.get("articles", [])),
         "lastError": message[:240],
+        "lastHttpStatus": http_status,
         "articles": previous.get("articles", []),
     }
 
@@ -138,10 +155,17 @@ def run() -> int:
         result = 0
         print(f"OK: fetched {len(items)} source items, retained {snapshot['articleCount']}")
     except Exception as exc:
-        safe = type(exc).__name__
-        if isinstance(exc, (RuntimeError, ValueError)):
+        http_status = exc.code if isinstance(exc, HTTPError) else None
+        if isinstance(exc, HTTPError):
+            # HTTPError is raised before entering the response context.
+            safe = f"Relay HTTP {http_status}"
+        elif isinstance(exc, URLError):
+            safe = "Relay network error (URLError)"
+        elif isinstance(exc, (RuntimeError, ValueError)):
             safe = f"{type(exc).__name__}: {str(exc)[:150]}"
-        snapshot = build_failure(previous, current, safe)
+        else:
+            safe = type(exc).__name__
+        snapshot = build_failure(previous, current, safe, http_status=http_status)
         result = 1
         print(f"ERROR: {safe}", file=sys.stderr)
     DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
