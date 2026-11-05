@@ -1,0 +1,43 @@
+name: One-shot relay HTTP diagnostic
+
+# Creates no news commits; uses separate temporary output and read-only permissions.
+on:
+  push:
+    paths:
+      - '.github/workflows/diagnose-relay.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Probe Cloudflare relay and show status only
+        env:
+          RELAY_URL: 'https://financialjuice-rss-relay.firetruck4159.workers.dev/?limit=50'
+          NEWS_JSON_PATH: /tmp/financialjuice-relay-diagnostic.json
+        shell: bash
+        run: |
+          set +e
+          python scripts/fetch_news.py
+          code=$?
+          echo "Collector exit code: $code"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('/tmp/financialjuice-relay-diagnostic.json')
+          if not p.exists():
+              print('No diagnostic JSON was produced')
+          else:
+              d = json.loads(p.read_text(encoding='utf-8'))
+              for key in ('status','lastAttemptAt','lastHttpStatus','lastError','upstreamItemCount'):
+                  print(f"{key}: {d.get(key)}")
+          PY
+          exit 0
