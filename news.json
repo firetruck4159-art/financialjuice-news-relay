@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": "FinancialJuice RSS via existing Cloudflare Worker",
   "status": "error",
-  "lastAttemptAt": "2026-11-05T08:48:48Z",
+  "lastAttemptAt": "2026-11-05T16:54:17Z",
   "lastSuccessAt": "2026-11-04T15:52:18Z",
   "sourceNewestAt": "2026-11-04T15:43:55Z",
   "upstreamItemCount": null,
